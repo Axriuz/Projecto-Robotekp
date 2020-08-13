@@ -1,0 +1,69 @@
+<!DOCTYPE html {% load static %}>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Producto</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/see2.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/icon1.ico" />
+</head>
+<body>
+    <style type="text/css">
+        input[type=text]  
+        {background: url("{% static 'img/search2.png' %}")}
+    </style>
+      <a href="/index/agregar_producto" class="btn btn-success">
+        <input type="button" value="Agregar Producto" class="añade">
+    </a>  
+    <div style="overflow-x:auto;">
+        <a href="/index" class="btn btn-success">
+            <img class="img-responsive" src="{% static 'img/logo2.png' %}" width="30%" height="35%">
+        </a> 
+    <form method="GET"> 
+        <input type="text" name="search" placeholder="Search..">
+        <button type="submit" class="Boton">Buscar</button>
+    </form>    
+</div>
+    wedo
+    UwU
+    <div style="overflow-x:auto;">
+    <table class="table table-bordered">
+        {% if object_list %}
+        <thead>
+            <tr>
+                <td>Código</td>
+                <td>Nombre</td>
+                <td>Descripción</td>
+                <td>Precio de venta</td>
+                <td>Opciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for producto in object_list %}
+            <tr>
+                <td>{{producto.Codigo}}</td>
+                <td>{{producto.Nombre}}</td>
+                <td>{{producto.Descripcion}}</td>
+                <td>{{producto.Precio_de_venta}}</td>
+                <td>
+                    <a href="{% url 'modi_produc' producto.IDP %}" class="btn btn-success">
+                        <input type="submit" value="Editar">
+                    </a>
+    
+                    <a href="{% url 'eli_produc' producto.IDP %}" class="btn btn-success">
+                        <input type="button" value="Eliminar">
+                    </a>
+                    </td>  
+            </tr>
+            {% endfor %}
+
+            {% else %}
+            <h1>No hay registros</h1>
+
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

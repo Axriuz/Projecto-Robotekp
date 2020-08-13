@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Multimedia</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header1">
+        <a href="/index" class="btn btn-success">
+            <img class="img-responsive" src="{% static 'img/logo2.png' %}" width="60%" height="60%">
+        </a>
+        </div>
+    </div>
+        
+    <div class="container">
+        <div class="container1">
+        </div>
+
+        <div class="container2">
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Guardar">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Robotekp</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/icon1.ico" />
+</head>
+<body>
+<div class="colM">
+
+    <a href="" class="btn btn-success">
+        <img class="img-responsive" src="{% static 'img/logo2.png' %}"  width="35%" height="35%">
+    </a>
+    <a href="{% url 'logout' %}" class="btn btn-success">
+        <img class="img-responsive" src="{% static 'img/logout1.png' %}">
+    </a>
+</div>
+    <div class="row">
+        <a href="agregar_producto" class="btn btn-success">
+            <img class="img-responsive" src="{% static 'img/agregar.png' %}">
+        </a>
+
+        <a href="consultar_producto" class="btn btn-success">
+            <img class="img-responsive" src="{% static 'img/consultar.png' %}">
+        </a>
+    </div>
+
+    </div>
+</body>
+</html>

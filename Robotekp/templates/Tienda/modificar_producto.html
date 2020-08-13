@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar producto</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mod.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/icon1.ico" />
+</head>
+<body>
+
+    <a href="/index" class="btn btn-success">
+        <img class="img-responsive" src="{% static 'img/logo2.png' %}" width="40%" height="40%">
+    </a>
+        
+    <div class="container">
+        <div class="container1">
+            <a href="agregar_multimedia" class="btn btn-success">
+                <img class="img-responsive" src="{% static 'img/addmultimedia.png' %}" width="70%" height="70%">
+            </a>
+        </div>
+
+        <div class="container2">
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <a href="/index/consultar_producto" class="btn btn-success">
+                    <input type="button" value="Cancelar">
+                </a>
+                <input type="submit" value="Guardar">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
