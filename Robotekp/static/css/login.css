@@ -1,0 +1,94 @@
+body {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 14pt;
+	color: #ffffff;
+}
+
+input[type=text] {
+	padding: 15px 15px 15px 15px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 3px solid #ccc;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	outline: none;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 16pt;
+	width:20%;
+}
+  
+input[type=text]:focus {
+	border: 3px solid rgb(47, 0, 255);
+}
+
+input[type=password] {
+	padding: 15px 15px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 3px solid #ccc;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	outline: none;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 16pt;
+	width: 20%;
+}
+  
+input[type=password]:focus {
+	border: 3px solid rgb(183, 0, 255);
+}
+*{
+	text-align: center;
+}
+input[type=button], input[type=submit], input[type=reset] input[type=checkbox]{
+	background-color: #000000;
+	border-radius: 8px;
+	color: white;
+	padding: 15px 120px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+	transition-duration: 0.4s;
+	font-size: 14pt;
+
+}
+input[type=button]:hover,input[type=submit]:hover, input[type=reset]:hover {
+	background-color: #b91fc7;
+	color: white;
+	font-size: 20pt;
+}
+
+.overlay{
+	background-color: rgba(0,0,0,.3);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.popup{
+	background-color: rgba(245, 245, 245, 0.418);
+	box-shadow: 0px 5px 0px rgba(0,0,0,.3);
+	border-radius: 5px;
+	width: 1000px;
+	text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+	input[type=submit], input[type=text], input[type=password] {
+	  width: 70%;
+	  margin-top: 0;
+	}
+	.log {
+		width: 100%;
+		margin-top: 0;
+	}
+	.img-responsive{
+		width: 15%;
+		margin-top: 0;
+	}
+}

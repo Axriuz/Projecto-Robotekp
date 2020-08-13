@@ -1,0 +1,110 @@
+*{
+    text-align: center;
+}
+body{
+	background-color: rgb(100, 96, 96);
+}
+input[type=text] {
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 3px solid #ccc;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	outline: none;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 13pt;
+	width: 35%;
+	padding: 12px;
+	border-radius: 4px;
+	resize: vertical;
+	margin-top: 6px;
+}
+  
+input[type=text]:focus {
+	border: 3px solid rgb(0, 81, 255);
+}
+
+input[type=submit]{
+	background-color: #1c6577;
+	border-radius: 8px;
+	color: white;
+	padding: 16px 128px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+	transition-duration: 0.4s;
+	font-size: 13pt;
+	width: 45%;
+}
+input[type=submit]:hover {
+	background-color: #1f2ac7;
+	color: white;
+	font-size: 18pt;
+}
+
+input[type=button]{
+	background-color: #771c1c;
+	border-radius: 8px;
+	color: white;
+	padding: 16px 128px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+	transition-duration: 0.4s;
+	font-size: 13pt;
+	width: 45%;
+}
+input[type=button]:hover {
+	background-color: #3b0404ea;
+	color: white;
+	font-size: 18pt;
+}
+label {
+  	width: 15%;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16pt;
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+	margin-top: 6px;
+	color: antiquewhite;
+}
+.container{
+	margin: 30px;
+}
+.container1 {
+    float: left;
+    width: 25%;
+	margin-top: 6px;
+}
+.container2{
+	float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+.header{
+	margin: 12px;
+}
+.header1{
+	float: left;
+    width: 25%;
+	margin-top: 6px;
+}
+.header2{
+	float: right;
+    width: 75%;
+	margin-top: 6px;
+}
+@media screen and (max-width: 600px) {
+	input[type=submit], input[type=text], input[type=password] {
+	  width: 100%;
+	  margin-top: 0;
+	}
+	img{
+		width: 100%;
+		margin-top: 0;
+	}
+	label{
+		width: 30%;
+		margin-top: 0;
+	}
+}
