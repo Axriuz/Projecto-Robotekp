@@ -1,9 +1,10 @@
 *{
-    text-align: center;
+	text-align: center;
+	padding: 0;
+  	margin: 0;
 }
-body{
-	background-color: rgb(106, 95, 230);
-}
+
+/*Inputs----------------------------------------------------------*/
 input[type=text] {
 	margin: 8px 0;
 	box-sizing: border-box;
@@ -13,10 +14,9 @@ input[type=text] {
 	outline: none;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	font-size: 13pt;
-	width: 35%;
+	width: 40%;
 	padding: 12px;
 	border-radius: 4px;
-	resize: vertical;
 	margin-top: 6px;
 }
   
@@ -25,7 +25,7 @@ input[type=text]:focus {
 }
 
 input[type=submit]{
-	background-color: #1c6577;
+	background-color: #771c1c;
 	border-radius: 8px;
 	color: white;
 	padding: 16px 128px;
@@ -33,29 +33,21 @@ input[type=submit]{
 	margin: 4px 2px;
 	cursor: pointer;
 	transition-duration: 0.4s;
-	font-size: 13pt;
-	width: 45%;
+	font-size: 14pt;
+	align-items: center;
+	justify-content: center;
 }
 input[type=submit]:hover {
 	background-color: #1f2ac7;
 	color: white;
-	font-size: 18pt;
+
 }
-input[type=button]{
-	background-color: #40771c;
-	border-radius: 8px;
-	color: white;
-	padding: 16px 16px;
-	text-decoration: none;
-	margin: 4px 2px;
-	cursor: pointer;
-	transition-duration: 0.4s;
-	font-size: 13pt;
-	float: right;
+.multi{
+	padding: 30px 12px 12px 12px;
 }
-  
+/*Label----------------------------------------------------------*/
 label {
-  	width: 15%;
+  	width: 20%;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16pt;
 	padding: 12px 12px 12px 0;
@@ -64,7 +56,7 @@ label {
 	color: antiquewhite;
 }
 label.pop{
-	width: 15%;
+	width: 20%;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	font-size: 16pt;
 	padding: 12px 12px 12px 0;
@@ -72,83 +64,99 @@ label.pop{
 	margin-top: 6px;
 	color: rgb(0, 0, 0);
 }
-li{
-	width: 15%;
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 12pt;
-	padding: 12px 12px 12px 0;
-	display: inline-block;
-	margin-top: 6px;
-	color: antiquewhite;
-}
+/*Div----------------------------------------------------------*/
 .container{
-	margin: 30px;
-}
-.container1 {
-    float: left;
-    width: 25%;
-	margin-top: 6px;
-	align-items: center;
-	justify-content: center;
-}
-.container2{
-	float: left;
-    width: 75%;
-    margin-top: 6px;
-}
-.header{
-	margin: 30px;
-}
-.header1{
-	float: left;
-    width: 25%;
-	margin-top: 6px;
-}
-.header2{
-	float: right;
-    width: 75%;
-	margin-top: 6px;
-}
-
-.overlay{
-	background-color: rgba(0,0,0,.3);
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	
+}
+.container2{
+	width: 60%;
+    padding: 2%;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #CCC;
+    background: #333;
+    position: fixed;
+	margin: 20% auto;
+	align-items: center;
+	justify-content: center;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
 	visibility: hidden;
+	display: flex;
+	opacity: 0;
+	align-items: center;
+	justify-content: center;
 }
-.overlay.active{
-	visibility: visible;
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
 }
-.popup{
-	background-color: rgba(245, 245, 245, 0.876);
-	box-shadow: 0px 5px 0px rgba(0,0,0,.3);
-	border-radius: 5px;
-	width: 800px;
-	text-align: center;
+#popupBody{
+    width: 50%;
+    padding: 2%;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #CCC;
+    background: #FFF;
+    position: relative;
+    transition: all 1s ease-in-out;
+    margin: 20% auto;    
+}
+#cerrar{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #F00;
+}
 
+.topnav {
+	overflow: hidden;
+	background-color: rgba(23, 96, 144, 1);
+	width: 100%;
 }
-
-.btn-close-popup{
-	font-size: 16px;
-	line-height: 16px;
+  
+.topnav a {
 	display: block;
-	text-align: right;
+	float: right;
+	color: #f2f2f2;
+	text-align: left;
+	padding: 12px 16px;
+	text-decoration: none;
+	font-size: 28px;
+}
+  
+.topnav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+  
+.topnav a.home {
+	background-color: rgba(10, 57, 88, 1);
+	color: white;
+	float: left;
 }
 
-.h3{
-	font-size: 26px;
-	margin-bottom: 40px;
-}
 
 
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 	input[type=submit], input[type=text], input[type=password] {
 	  width: 100%;
 	  margin-top: 0;
