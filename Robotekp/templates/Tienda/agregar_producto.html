@@ -4,36 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Añadir nuevo producto</title>
+    <title>Add new product</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/add.css' %}">
-    <script type="text/javascript" src="/static/js/popup.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/static/img/icon1.ico" />
 </head>
-<body>
-    <div class="header">
-        <div class="header1">
-        <a href="/index" class="btn btn-success">
-            <img class="img-responsive" src="{% static 'img/logo2.png' %}" width="60%" height="60%">
-        </a>
-        </div>
-        <div class="header2">
-        <a href="/index/consultar_producto" class="btn btn-success">
-            <input type="button" value="Ver Producto">
-        </a>
-        </div>
+<body background="{% static 'img/rain.png' %}">
+    <div class="topnav">
+        <a href="/index" class="home">Home</a>
+        <a href="{% url 'logout' %}">Salir</a>
+        <a href="/index/consultar_producto">Ver Productos</a>
     </div>
-        
     <div class="container">
-        <div class="container1">
-            <a href="#" class="btn-open-popup" id="btn-abrir-popup" onclick="AbrirPopUp()">
-                <img class="img-responsive" src="{% static 'img/addmultimedia.png' %}" width="70%" height="70%">
-            </a>
-        </div>
-
         <div class="container2">
             <form method="POST">
                 {% csrf_token %}
-                
                 <p>
                 <label for="{{ form.Codigo.Código }}">Código:</label>
                 {{form.Codigo}}
@@ -50,31 +34,31 @@
                     <label for="{{ form.Precio_de_venta.Precio_de_venta }}">Precio de venta:</label>
                     {{form.Precio_de_venta}}
                 </p>
+                <p>
                 <input type="submit" value="Guardar">
-            </form>
+                <a href="#popup" class="multi">
+                    <img class="img-responsive" src="{% static 'img/addmultimedia2.png' %}">
+                </a>
+                </p>
         </div>
-        <div class="overlay" id="overlay">
-            <div class="popup" id="popup">
-                <form method="POST" action="">
+    </div>
+    <div id="popup" class="overlay">
+        <div id="popupBody">
+            <h2>Añadir Multimedia</h2>
+            <a id="cerrar" href="#">&times;</a>
+            <div class="popupContent">
                     {% csrf_token %}
-                    <a href="#" id="btn-cerrar-popup" class="btn-close-popup">
-                        <img class="img-responsive" src="{% static 'img/close.png' %}">
-                    </a>
-                    <H2>Añadir multimedia</H2>
-                    <div class="container3">
-                        <p>
-                            <label class="pop" for="{{ form.URL_Video.URL_Video }}">URL_Video:</label>
-                            {{form.URL_Video}}
-                        </p>
-                        <p>
-                            <label class="pop" for="{{ form.URL_Imagen.URL_Imagen }}">URL_Imagen:</label>
-                            {{form.URL_Imagen}}
-                        </p>
-                    </div>  
+                    <p>
+                        <label class="pop" for="{{ form.URL_Video.URL_Video }}">URL Video:</label>
+                        {{form.URL_Video}}
+                    </p>
+                    <p>
+                        <label class="pop" for="{{ form.URL_Imagen.URL_Imagen }}">URL Imagen:</label>
+                        {{form.URL_Imagen}}
+                    </p>          
                     <input type="submit" value="Guardar">
                 </form>
             </div>
         </div>
-    </div>
 </body>
 </html>
