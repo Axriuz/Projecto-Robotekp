@@ -4,17 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/delete.css' %}">
-    <title>Eliminar producto</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/del.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/icon1.ico" />
+    <title>Delete</title>
 </head>
-<body>
-
+<body background="{% static 'img/delete2.png' %}">
+    <div class="topnav">
+        <a href="/index" class="home">Home</a>
+        <a href="{% url 'logout' %}">Salir</a>
+    </div>
     <div class="overlay" id="overlay">
         <div class="popup" id="popup">
+            <div class="header">
+                <a>¿Eliminar el registro y todos su datos?</a>
+            </div>
             <form method="POST">
                 {% csrf_token %}
                 {{form.as_p}}
-                <h1>¿Desea eliminar el registro?</h1>
+                
                 <button class="btn-danger" type="submit">
                     Aceptar
                 </button>

@@ -4,33 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar producto</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/mod.css' %}">
+    <title>Mod product</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/modd.css' %}">
     <link rel="shortcut icon" type="image/x-icon" href="/static/img/icon1.ico" />
 </head>
-<body>
-
-    <a href="/index" class="btn btn-success">
-        <img class="img-responsive" src="{% static 'img/logo2.png' %}" width="40%" height="40%">
-    </a>
-        
+<body background="{% static 'img/pieces-of-lego3.jpg' %}">
+    <div class="topnav">
+        <a href="/index" class="home">Home</a>
+        <a href="{% url 'logout' %}">Salir</a>
+        <a href="/index/consultar_producto">Ver Productos</a>
+        <a href="/index/agregar_producto">Añadir Nuevo</a>
+    </div>
     <div class="container">
-        <div class="container1">
-            <a href="agregar_multimedia" class="btn btn-success">
-                <img class="img-responsive" src="{% static 'img/addmultimedia.png' %}" width="70%" height="70%">
-            </a>
-        </div>
-
         <div class="container2">
             <form method="POST">
                 {% csrf_token %}
-                {{form.as_p}}
-                <a href="/index/consultar_producto" class="btn btn-success">
-                    <input type="button" value="Cancelar">
-                </a>
+                <p>
+                <label for="{{ form.Codigo.Código }}">Código:</label>
+                {{form.Codigo}}
+                </p>
+                <p>
+                <label for="{{ form.Nombre.Nombre }}">Nombre:</label>
+                {{form.Nombre}}
+                </p>
+                <p>
+                    <label for="{{ form.Descripcion.Descripcion }}">Descripción:</label>
+                    {{form.Descripcion}}
+                </p>
+                <p>
+                    <label for="{{ form.Precio_de_venta.Precio_de_venta }}">Precio de venta:</label>
+                    {{form.Precio_de_venta}}
+                </p>
+                <p>
                 <input type="submit" value="Guardar">
-            </form>
+                <a href="#popup" class="multi">
+                    <img class="img-responsive" src="{% static 'img/addmultimedia2.png' %}">
+                </a>
+                </p>
         </div>
     </div>
+    <div id="popup" class="overlay">
+        <div id="popupBody">
+            <h2>Añadir Multimedia</h2>
+            <a id="cerrar" href="#">&times;</a>
+            <div class="popupContent">
+                    {% csrf_token %}
+                    <p>
+                        <label class="pop" for="{{ form.URL_Video.URL_Video }}">URL Video:</label>
+                        {{form.URL_Video}}
+                    </p>
+                    <p>
+                        <label class="pop" for="{{ form.URL_Imagen.URL_Imagen }}">URL Imagen:</label>
+                        {{form.URL_Imagen}}
+                    </p>          
+                    <input type="submit" value="Guardar">
+                </form>
+            </div>
+        </div>
 </body>
 </html>
