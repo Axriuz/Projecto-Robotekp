@@ -1,0 +1,269 @@
+*{
+	
+	padding: 0;
+	margin: 0;
+}
+
+.container{
+	margin: auto;
+	background-color: white;
+	width: 50%;
+}
+.container2{
+	margin: auto;
+	background-color: white;
+	width: 50%;
+}
+ul, li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+  
+ul.slider{
+	position: relative;
+	width: 480px;
+    height: 300px;
+}
+
+ul.slider li {
+    position: absolute;
+    padding: 20px;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    transition: opacity .5s;
+    background:#fff;
+}
+  
+ul.slider li img{
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+}
+  
+ul.slider li:first-child {
+	  opacity: 1; /*Mostramos el primer <li>*/
+}
+  
+ul.slider li:target {
+	  opacity: 1; /*Mostramos el <li> del enlace que pulsemos*/
+}
+  
+.menu{
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.menu li{
+	display: inline-block;
+	text-align: center;
+}
+  
+.menu li a{
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+	background-color: grey;
+	padding: 10px;
+	width: 10px;
+	height: 10px;
+	font-size: 10px;
+	border-radius: 100%;
+}
+.informacion{
+    text-align: left;
+    margin: auto;
+	background-color: white;
+    width: 50%;
+}
+.botones{
+    text-align: center;
+    margin: auto;
+	background-color: white;
+    width: 40%;
+}
+
+.container2{
+    align-items: center;
+    margin: auto;
+	background-color: rgb(255, 255, 255);
+	width: 50%;
+}
+ul.slider2{
+	position: relative;
+	width: 480px;
+    height: 300px;
+}
+
+ul.slider2 li {
+    position: absolute;
+    padding: 20px;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    transition: opacity .5s;
+    background:#fff;
+}
+  
+ul.slider2 li img{
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+}
+  
+ul.slider2 li:first-child {
+	  opacity: 1; /*Mostramos el primer <li>*/
+}
+  
+ul.slider2 li:target {
+	  opacity: 1; /*Mostramos el <li> del enlace que pulsemos*/
+}
+  
+.informacion2{
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 50%;
+	background-color: white;
+    width: 50%;
+}
+
+.botones2{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 20%;
+    margin-right: 80%;
+    width: 100%;
+}
+
+.QR{
+    visibility: hidden;
+    
+}
+
+
+ul.navbar{
+    text-align: center;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 25%;
+	background-color: #333;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+li a {
+	display: block;
+	color: #f2f2f2;
+	padding: 8px 32px;
+    text-decoration: none;
+    font-size: 28px;
+}
+  
+li a.user {
+	background-color:  #4CAF50;
+	color: rgb(255, 255, 255);
+}
+  
+li a:hover {
+	background-color: #555;
+	color: white;
+}
+
+li a.user:hover {
+	background-color:  #4CAF50;
+}
+
+.userc{
+	width: 100%;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+	visibility: hidden;
+	display: flex;
+	opacity: 0;
+	align-items: center;
+	justify-content: center;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+#popupBody{
+    padding: 2%;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #CCC;
+    background: #FFF;
+    position: relative;
+    transition: all 1s ease-in-out;
+    margin: 20% auto;    
+}
+#cerrar{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #F00;
+}
+
+@media screen and (max-width: 700px) {
+    .navbar li a {
+        font-size: 20px;
+    }
+    .menu li a{
+        padding: 7px;
+        width: 7px;
+        height: 7px;
+        font-size: 7px;
+    }
+    .botones{
+        text-align: center;
+        margin-left: 35%;
+        margin-right: 35%;
+        width: 100%;
+    }
+    .informacion{
+        margin-left: 55%;
+        margin-right: 25%;
+        width: 100%;
+    }
+    .container{
+        margin-left: 35%;
+        margin-right: 35%;
+        width: 100%;
+    }
+    .container2{
+        width: 70%;
+    }
+    .botones2{
+        text-align: center;
+        margin: 30px;
+        width: 100%;
+    }
+    .informacion2{
+        margin: 30px;
+        width: 100%;
+    }
+} 
