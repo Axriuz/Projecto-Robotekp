@@ -5,14 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add new product</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/add.css' %}">
-    <link rel="shortcut icon" type="image/x-icon" href="/static/img/icon1.ico" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/add1.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/icon1.ico"/>
+    <script type="text/javascript" src="/static/js/embed.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body background="{% static 'img/rain.png' %}">
-    <div class="topnav">
-        <a href="/index" class="home">Home</a>
-        <a href="{% url 'logout' %}">Salir</a>
-        <a href="/index/consultar_producto">Ver Productos</a>
+    <div class="topnav" id="myTopnav">
+        <a href="/index" class="active"><i class="fa fa-home"></i>Inicio</a>
+        <a href="/index/consultar_producto"><i class="fa fa-fw fa-eye"></i>Ver Productos</a>
+        <a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i>Salir</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
     <div class="container">
         <div class="container2">
@@ -35,30 +40,43 @@
                     {{form.Precio_de_venta}}
                 </p>
                 <p>
-                <input type="submit" value="Guardar">
-                <a href="#popup" class="multi">
-                    <img class="img-responsive" src="{% static 'img/addmultimedia2.png' %}">
-                </a>
+                <input type="submit" value="Guardar" onclick="embed()">
+                <a id="multi" href="#popup" class="multi"><i class="fa fa-fw fa-film"></i></a>
                 </p>
+            </form>
         </div>
     </div>
     <div id="popup" class="overlay">
         <div id="popupBody">
-            <h2>Añadir Multimedia</h2>
-            <a id="cerrar" href="#">&times;</a>
+            <div class="popuphead">
+                <h2>Añadir Multimedia</h2>
+                <a id="cerrar" href="#">&times;</a>
+            </div>
             <div class="popupContent">
+                <form>
                     {% csrf_token %}
                     <p>
-                        <label class="pop" for="{{ form.URL_Video.URL_Video }}">URL Video:</label>
+                        <label class="popv" for="{{ form.URL_Video.URL_Video }}">URL Video:</label>
                         {{form.URL_Video}}
                     </p>
                     <p>
-                        <label class="pop" for="{{ form.URL_Imagen.URL_Imagen }}">URL Imagen:</label>
+                        <label class="popi" for="{{ form.URL_Imagen.URL_Imagen }}">URL Imagen:</label>
                         {{form.URL_Imagen}}
-                    </p>          
-                    <input type="submit" value="Guardar">
+                    </p>           
+                    <input type="submit" value="Guardar" onclick="embed()">
                 </form>
             </div>
         </div>
+    </div>
 </body>
+<script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+</script>
 </html>

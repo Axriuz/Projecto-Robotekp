@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/log.css">
     <script type="text/javascript" src="/static/js/funcionlogin.js"></script>
     <title>Administración</title>
     <link rel="shortcut icon" type="image/x-icon" href="/static/img/icon1.ico" />
 
 </head>
 <body background="{% static 'img/pieces-of-lego2.jpg' %}">
-    <div class="overlay" id="overlay">
+
         <div class="popup" id="popup">
             <form method="post">
                 {% csrf_token %}  
@@ -20,20 +20,18 @@
                     <img class="log" src="{% static 'img/logo2.png' %}" width="50%" height="50%">
                 </p>
                 <p>
-                    <a><img class="img-responsive" src="{% static 'img/head.png' %}" width="5%" height="5%">
-                    </a>
+                    
                 <input type="text" name="username" autofocus="" required="" id="id_username" placeholder="Nombre de usuario">
-                </p>
+                
+            </p>
                 <p>
-                <img class="img-responsive" src="{% static 'img/lock2.png' %}" width="5%" height="5%">
                 <input type="password" name="password" required="" id="id_password" placeholder="Contraseña">
-                </p>
-                <p>
+               
+            </p>
+
                 <input type="submit" value="Ingresar">
-                </p>
             </form>
         </div>
-    </div>
 </body>
 </html>
 

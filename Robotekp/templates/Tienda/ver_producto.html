@@ -4,46 +4,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/see.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ver.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/icon1.ico" />
+    <script type="text/javascript" src="/static/js/qrcode.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>{{producto.Nombre}}</title>
 </head>
 <body>
-    <div class="topnav">
-        <a href="/index" class="home">Home</a>
-        <a href="{% url 'modi_produc' producto.IDP %}">
-            Editar
-        </a>
-        <a href="{% url 'eli_produc' producto.IDP %}">
-            Eliminar
-        </a>
-        <a href="{% url 'logout' %}">Salir</a>
+    {% if user.is_superuser %}
+    <div class="userc">
+        <ul class="navbar">
+            <li><a href="/index" class="user"><i class="fa fa-home"></i>Inicio</a></li>
+            <li><a href="/index/agregar_producto"><i class="fa fa-fw fa-plus-square"></i>Agregar Nuevo</a></li>
+            <li><a href="{% url 'modi_produc' producto.IDP %}"><i class="fa fa-fw fa-pencil"></i>Modificar Producto</a></li>
+            <li><a href="{% url 'eli_produc' producto.IDP %}"><i class="fa fa-fw fa-trash-o"></i>Eliminar</a></li>
+            <li><a href="/index/consultar_producto"><i class="fa fa-fw fa-eye"></i>Ver Productos</a></li>
+            <li><a href="#popup" class="multi" onclick="update_qrcode()">
+                <i class="fa fa-fw fa-qrcode"></i>
+                
+                Ver QR
+            </a></li>
+            <li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i>Salir</a>  </li>
+            <li><a><i class="fa fa-fw fa-user"></i>
+                Bienvenido : {{ user.username | upper }}
+            </a></li>
+            
+        </ul>
+    
+        <div style="margin-left:25%;padding:1px 16px;height:1000px;">
+            <div class="container">
+                <ul class="slider">
+                  <li id="slide1">
+                    <img src="{{producto.URL_Imagen}}"/>
+                  </li>
+                  <li id="slide2">
+                    <iframe width="480" height="240" src="{{producto.URL_Video}}" frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                  </li>
+                </ul>
+                
+            </div>
+            <div class="botones">
+                <ul class="menu">
+                    <li>
+                      <a href="#slide1"></a>
+                    </li>
+                    <li>
+                      <a href="#slide2"></a>
+                    </li>
+                  </ul>
+            </div>
+            <div class="informacion">
+                <h1>Detalles del producto</h1>
+                <ul class="producto">
+                    <li>Nombre del producto: {{producto.Nombre}}</li>
+                    <li><label for="{{ form.Codigo.Código }}">Código:</label>
+                            {{producto.Codigo}}</li>
+                    <li><label for="{{ form.Descripcion.Descripcion }}">Descripción:</label>
+                            {{producto.Descripcion}}</li>
+                    <li><label for="{{ form.Precio_de_venta.Precio_de_venta }}">Precio de venta:</label>
+                            <strong>$ {{producto.Precio_de_venta}}</strong></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="card">
-        <div class="card-header">
-            <h1 class="card-title">Detalles de {{producto.Nombre}}</h1>
-        </div>
-        <div class="card-body">
-            <p>
-                <label for="{{ form.Codigo.Código }}">Código:</label>
-                {{producto.Codigo}}
-            </p>
-            <p>
-                <label for="{{ form.Descripcion.Descripcion }}">Descripción:</label>
-                {{producto.Descripcion}}
-            </p>
-            <p>
-                <label for="{{ form.Precio_de_venta.Precio_de_venta }}">Precio de venta:</label>
-               <strong>$</strong> {{producto.Precio_de_venta}}
-            </p> 
+
+    <div id="popup" class="overlay">
+        <div id="popupBody">
+            <div class="popuphead">
+                <h2>Descargar QR</h2>
+                <a id="cerrar" href="#">&times;</a>
+            </div>
+            <div id="qr"></div>
+            <a>Clic derecho -> Guardar imagen como</a>
         </div>
     </div>
-    <div class="multimedia">
-        <div class="video">
-            <iframe width="560" height="315" src="{{producto.URL_Video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="imagen">
-            <img class="img-responsive" src="{{producto.URL_Imagen}}"> 
-        </div>
+    <form>
+        <textarea name="msg" rows="10" class="QR">http://192.168.1.64:8000/index/view/{{producto.IDP}}</textarea><br> 
+    </form>
+    {% else  %}
+    <div class="userc">
+            <div class="container2">
+                <ul class="slider2">
+                  <li id="slide1">
+                    <img src="{{producto.URL_Imagen}}"/>
+                  </li>
+                  <li id="slide2">
+                    <iframe width="480" height="240" src="{{producto.URL_Video}}" frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                  </li>
+                </ul>
+                
+                <div class="botones2">
+                    <ul class="menu">
+                        <li>
+                          <a href="#slide1"></a>
+                        </li>
+                        <li>
+                          <a href="#slide2"></a>
+                        </li>
+                      </ul>
+                </div>
+                
+            </div>
+            <div class="informacion2">
+                <ul class="producto">
+                    <li><h1 class="card-title">{{producto.Nombre}}</h1></li>
+                    <li><label for="{{ form.Codigo.Código }}">Código:</label>
+                            {{producto.Codigo}}</li>
+                    <li><label for="{{ form.Descripcion.Descripcion }}">Descripción:</label>
+                            {{producto.Descripcion}}</li>
+                    <li><label for="{{ form.Precio_de_venta.Precio_de_venta }}">Precio de venta:</label>
+                            <strong>$</strong> {{producto.Precio_de_venta}}</li>
+                </ul>
+            </div>
+
     </div>
+    {% endif %}
 </body>
 </html>
+
+
